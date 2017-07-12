@@ -1,0 +1,118 @@
+
+nav {
+	border-top: 4px solid #888888;
+	border-bottom: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
+	box-shadow: 0 0.15em 0.35em 0;
+	text-align: right;
+	padding: 0 5%;
+	z-index: 2000;
+}
+
+nav > span {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	line-height: 20px;
+}
+
+nav a {
+	height: 100%;
+	display: inline-block;
+    padding: 0 1em;
+    line-height: 40px;
+	vertical-align: text-bottom;
+
+	text-transform: uppercase;
+	font-size: 80%;
+	color: #666;
+}
+
+nav a:hover {
+	color: white;
+	background: #888;
+	text-decoration: none;
+}
+
+nav > *:hover > ul {
+	display: initial;
+}
+
+nav ul {
+	display: none;
+	position: absolute;
+	right: 0;
+	min-width: 80px;
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 2000;
+}
+
+nav li {
+	width: 100%;
+	background: white;
+	white-space: nowrap;
+	padding: 0;
+	margin: 0;
+}
+
+nav li.header span {
+	padding: 0 1em;
+	padding-bottom: 0.25em;
+	line-height: 20px;
+    box-sizing: border-box;
+}
+
+nav li a {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+nav.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+nav.bottomup ul {
+	bottom: 40px;
+	padding-bottom: 10px;
+}
+
+nav.bottomup li.header {
+	padding-top: 0.5em;
+}
+
+nav.topdown ul {
+	padding-top: 10px;
+
+	background: white;
+	box-shadow: 0 0.15em 0.35em 0;
+}
+
+nav.bottomup li {
+	border-left: 1px solid lightgray;
+	border-right: 1px solid lightgray;
+}
+
+nav.bottomup li:first-child {
+	border-top: 2px solid darkgray;
+}
+
+@media(max-width: 500px) {
+	nav {
+		text-align: center;
+	}
+
+	nav > span {
+		position: static;
+	}
+
+	nav ul {
+		left: 0;
+		right: 0;
+	}
+}

@@ -1,0 +1,42 @@
+
+.column-2 {
+	display: inline-block;
+	width: 49%;
+}
+
+.column-3 {
+	display: inline-block;
+	width: 32%;
+}
+
+.column-4 {
+	display: inline-block;
+	width: 24%;
+}
+
+.pull-right { float: right; }
+.pull-left { float: left; }
+
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+
+.mobile-only {
+	display: none;
+}
+
+@media(max-width: 500px) {
+	.desktop-only {
+		display: none;
+	}
+
+	.mobile-only {
+		display: inherit;
+	}
+
+	.column-2,
+	.column-3,
+	.column-4 {
+		width: 100%;
+	}
+}

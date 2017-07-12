@@ -1,0 +1,163 @@
+
+h1 {
+	position: absolute;
+	left: 2em;
+	top: 0;
+	margin: 0;
+
+	color: lightgray;
+	font-family: sans-serif;
+	line-height: 20px;
+}
+
+#content section {
+	border-bottom: 4px solid lightgray;
+	text-align: center;
+}
+
+#content section > * {
+	text-align: left;
+}
+
+#content {
+	max-width: 100%;
+	padding: 0;
+}
+
+#intro {
+	height: calc(100% - 50px);
+	width: auto;
+}
+
+#about {
+	padding: 5% 10%;
+}
+
+#map {
+	position: relative;
+	height: 400px;
+}
+
+#map aside {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 16px;
+	margin: 1%;
+	width: 200px;
+	z-index: 1000;
+
+	border: 2px solid black;
+	border-radius: 2px;
+	background: black;
+	opacity: 0.75;
+}
+
+#products,
+#events,
+#map-details {
+	position: relative;
+	padding: 3em 0;
+}
+
+#products article {
+	display: inline-block;
+	text-align: center;
+	width: 200px;
+	height: 330px;
+	margin: 8px;
+
+	line-height: 20px;
+	vertical-align: text-top;
+	border: 1px solid darkgray;
+}
+
+#products article a {
+	display: block;
+	height: 100%;
+}
+
+#products article:nth-child(odd) {
+	margin-top: 5em;
+}
+
+#products article:last-child {
+	font-size: 2em;
+	line-height: 330px;
+}
+
+#products article:last-child a {
+	color: darkgray;
+}
+
+#events article {
+	display: inline-block;
+	width: 340px;
+	padding: 0.5em;
+}
+
+#events img {
+	border: 1px solid darkgray;
+}
+
+#products img,
+#events img {
+	width: 100%;
+}
+
+@media(max-width: 882px) {
+	#products article {
+		margin: 8px !important;
+	}
+}
+
+@media(max-width: 500px) {
+	#products article {
+		width: 150px;
+		height: 255px;
+		margin: 8px !important;
+	}
+}
+
+/* Slide Show */
+#slideshow {
+	display: none;
+}
+
+.slidesjs-pagination {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+
+    position: relative;
+    bottom: 30px;
+    z-index: 10;
+    height: 0;
+}
+
+.slidesjs-pagination li {
+	display: inline-block;
+	margin: 0 1px;
+}
+
+.slidesjs-pagination li a {
+	display: block;
+	width: 13px;
+	height: 0;
+	padding-top: 13px;
+	background-image: url(../images/website/pagination.png);
+	background-position: 0 0;
+	float: left;
+	overflow: hidden;
+}
+
+.slidesjs-pagination li a.active,
+.slidesjs-pagination li a:hover.active {
+	background-position: 0 -13px
+}
+
+.slidesjs-pagination li a:hover {
+	background-position: 0 -26px
+}

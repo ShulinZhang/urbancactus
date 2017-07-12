@@ -1,0 +1,11 @@
+
+article {
+	display: inline-block;
+	width: 340px;
+	padding: 0.5em;
+}
+
+img {
+	border: 1px solid darkgray;
+	width: 100%;
+}

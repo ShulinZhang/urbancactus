@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/page-events.css' %}" />
+{% endblock %}
+
+{% block title %}Past Events | Urban Cactus{% endblock %}
+
+{% block content %}
+{% if past_events.count > 0 %}
+	{% for event in past_events %}
+		<article>
+			<img src="{% static 'core/images/events/' %}{{ event.image }}"></img>
+			<strong><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></strong>
+			<p>{{ event.introduction }}</p>
+			<small>{{ event.event_date }} / <a href="{{ event.get_absolute_url }}">read more</a></small>
+		</article>
+	{% endfor %}
+{% else %}
+	<div class="align-center">No Events Yet</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{% static 'core/css/global.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'core/css/generic-classes.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'core/css/navigation.css' %}" />
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+		{% block head %}{% endblock %}
+	    <title>{% block title %}Urban Cactus{% endblock %}</title>
+	</head>
+	<body>
+		{% block before-navigation %}{% endblock %}
+
+	    <nav class="topdown">
+			<span><a href="/">Home</a></span>
+			<span>
+				<a href="/spi">SPI</a>
+				<ul>
+					<li class="header"><span>Sustainable Products Initiative</span></li>
+					<li><a href="/spi/map">Map</a></li>
+					<li><a href="/spi#join">Join</a></li>
+				</ul>
+			</span>
+			<span>
+				<a href="/n/products">N#</a>
+				<ul>
+					<li><a href="/n/products">Products</a></li>
+					<li><a href="#">Store</a></li>
+				</ul>
+			</span>
+			<span>
+				<a href="/events">Events</a>
+				<ul>
+					<li class="header"><span>Community Building Events</span></li>
+					{% for event in upcoming_events %}
+						<li><a href="/events/{{ event.slug }}">{{ event.title }}</a></li>
+					{% endfor %}
+					<li><a href="/events/archive">Previous Events</a></li>
+				</ul>
+			</span>
+			<span><a href="/contact">Contact</a></span>
+		</nav>
+
+	    <div id="content">
+	        {% block content %}{% endblock %}
+	    </div>
+
+		<footer>
+			<div class="pull-right">
+				<img src="{% static 'core/images/website/wechat.png' %}"></img>
+			</div>
+			<div class="pull-right align-right">
+				<strong>Contact Us</strong>
+				<br>
+				<em>
+					Address #154, Street<br>
+					Big City, China<br>
+					+186 135 2304 6016<br>
+					<a href="mailto:contact@urbancactus.earth">contact@urbancactus.earth</a>
+				</em>
+			</div>
+			<small>Copyright (c) 2017 Urban Cactus, All Rights Reserved.</small>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		var python_data = {{ js_data|safe }};
+	</script>
+</html>

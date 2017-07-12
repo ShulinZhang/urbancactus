@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Products | Urban Cactus{% endblock %}
+
+{% block content %}
+
+{% for series in product_series %}
+	<section id="{{ series.slug }}">
+		<h1>{{ series.title }}</h1>
+		{% for product in series.product_set.all %}
+			<img class="pull-left" src="{% static 'core/images/products/' %}{{ product.image }}"></img>
+			<h3>{{ product.title }}</h3>
+			<p>{{ product.description }}</p>
+			<div style="clear: both;"></div>
+		{% endfor %}
+	</section>
+{% endfor %}
+
+{% endblock %}
