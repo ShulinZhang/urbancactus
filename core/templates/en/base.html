@@ -14,9 +14,8 @@
 	    <title>{% block title %}Urban Cactus{% endblock %}</title>
 	</head>
 	<body>
-		{% block before-navigation %}{% endblock %}
-
 	    <nav class="topdown">
+			<img class="pull-left" src="{% static 'core/images/website/logo.png' %}" height="30" style="padding: 5px;"></img>
 			<span><a href="/">Home</a></span>
 			<span>
 				<a href="/spi">SPI</a>
@@ -45,6 +44,8 @@
 			</span>
 			<span><a href="/contact">Contact</a></span>
 		</nav>
+
+		{% block slideshow %}{% endblock %}
 
 	    <div id="content">
 	        {% block content %}{% endblock %}
