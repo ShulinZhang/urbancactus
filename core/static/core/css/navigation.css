@@ -1,9 +1,11 @@
 
 nav {
+	/*
 	border-top: 4px solid #888888;
 	border-bottom: 1px solid #CCCCCC;
 	background-color: #FFFFFF;
 	box-shadow: 0 0.15em 0.35em 0;
+	*/
 	text-align: right;
 	padding: 0 5%;
 	z-index: 2000;
@@ -71,6 +73,7 @@ nav li a {
 }
 
 nav.fixed {
+	background-color: #FFFFFF;
 	position: fixed;
 	top: 0;
 	width: 100%;

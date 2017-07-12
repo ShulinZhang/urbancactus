@@ -29,10 +29,6 @@ h1 {
 	width: auto;
 }
 
-#about {
-	padding: 5% 10%;
-}
-
 #map {
 	position: relative;
 	height: 400px;
@@ -54,10 +50,32 @@ h1 {
 }
 
 #products,
-#events,
-#map-details {
+#events {
 	position: relative;
 	padding: 3em 0;
+}
+
+#about,
+.map-details {
+	padding: 5% 10%;
+}
+
+.map-details {
+	position: relative;
+}
+
+aside.map-details {
+	position: absolute;
+	top: 5px;
+	bottom: 20px;
+	right: 5px;
+	background: white;
+	padding: 1em;
+}
+
+.map-details big {
+	display: block;
+	font-size: 5em;
 }
 
 #products article {
@@ -105,9 +123,19 @@ h1 {
 	width: 100%;
 }
 
+@media(min-width: 882px) {
+	section.map-details {
+		display: none;
+	}
+}
+
 @media(max-width: 882px) {
 	#products article {
 		margin: 8px !important;
+	}
+
+	aside.map-details {
+		display: none;
 	}
 }
 

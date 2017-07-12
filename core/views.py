@@ -31,7 +31,10 @@ def get_map_data():
     return result
 
 # Special Pages
-def index(request):
+def default_index(request):
+    return index(request, 'cn')
+
+def index(request, ln):
     today = date.today()
     js_data = {
         'map_types': get_map_data(),
@@ -39,53 +42,53 @@ def index(request):
         'disableLocationDetection': True,
     }
 
-    return render(request, 'core/index.html', {
+    return render(request, ln+'/index.html', {
         'product_series': ProductSeries.objects.all()[:3],
         'events': Event.objects.filter(publish_date__lte=today)[:3],
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
         'js_data': json.dumps(js_data, cls=DjangoJSONEncoder),
     })
 
-def contact(request):
+def contact(request, ln):
     today = date.today()
 
-    return render(request, 'core/contact.html', {
+    return render(request, ln+'/contact.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
     })
 
 # SPI Pages
-def spi_index(request):
+def spi_index(request, ln):
     today = date.today()
 
-    return render(request, 'core/spi/index.html', {
+    return render(request, ln+'/spi/index.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
     })
 
-def spi_map(request):
+def spi_map(request, ln):
     today = date.today()
     js_data = { 'map_types': get_map_data() }
 
-    return render(request, 'core/spi/map.html', {
+    return render(request, ln+'/spi/map.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
         'js_data': json.dumps(js_data, cls=DjangoJSONEncoder),
     })
 
 # N# Pages
-def n_products(request):
+def n_products(request, ln):
     today = date.today()
 
-    return render(request, 'core/n/products.html', {
+    return render(request, ln+'/n/products.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
         'product_series': ProductSeries.objects.all(),
     })
 
 # Events Pages
-def events_index(request):
+def events_index(request, ln):
     today = date.today()
 
     future_events = Event.objects.filter(publish_date__lte=today, event_date__gte=today)
 
-    return render(request, 'core/events/index.html', {
+    return render(request, ln+'/events/index.html', {
         'product_series': ProductSeries.objects.all()[:3],
         'upcoming_events': future_events[:3],
         'future_events': future_events,
@@ -94,18 +97,18 @@ def events_index(request):
         'events': Event.objects.all()
     })
 
-def events_single(request, slug):
+def events_single(request, ln, slug):
     today = date.today()
 
-    return render(request, 'core/events/single.html', {
+    return render(request, ln+'/events/single.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
         'event': Event.objects.get(slug=slug),
     })
 
-def events_archive(request):
+def events_archive(request, ln):
     today = date.today()
 
-    return render(request, 'core/events/archive.html', {
+    return render(request, ln+'/events/archive.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
         'past_events': Event.objects.filter(publish_date__lte=today, event_date__lt=today),
     })
