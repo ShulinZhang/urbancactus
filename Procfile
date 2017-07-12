@@ -1,2 +1,2 @@
-web: gunicorn urbancactus.wsgi:application --log-file -
+web: gunicorn urbancactus.wsgi
 
