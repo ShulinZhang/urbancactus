@@ -64,6 +64,14 @@ def index(request):
         'js_data': json.dumps(js_data, cls=DjangoJSONEncoder),
     })
 
+def about(request):
+    ln = request.LANGUAGE_CODE
+    today = date.today()
+
+    return render(request, ln+'/about.html', {
+        'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
+    })
+
 def contact(request):
     ln = request.LANGUAGE_CODE
     today = date.today()

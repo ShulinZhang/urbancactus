@@ -51,6 +51,10 @@ h1 {
 	padding: 3em 0;
 }
 
+#about img {
+	margin: 0.5em;
+}
+
 #about,
 .map-details {
 	padding: 5% 10%;
