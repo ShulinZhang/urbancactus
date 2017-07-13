@@ -17,6 +17,17 @@
 				<img class="pull-left" src="{% static 'core/images/products/' %}{{ product.image }}"></img>
 			{% endfor %}
 		</div>
+
+		<h4>Customers</h4>
+		<div class="grid">
+			{% for partner in series.partner_set.all %}
+				<article>
+					<a href="{{ partner.get_absolute_url }}">
+						<img src="{% static 'core/images/partner-logos/' %}{{ partner.logo }}"></img>
+					</a>
+				</article>
+			{% endfor %}
+		</div>
 	</div>
 
 	<div id="product-description" class="column-2">
