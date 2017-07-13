@@ -1,4 +1,4 @@
-{% extends "cn/base.html" %}
+{% extends "cn/navigation.html" %}
 {% load static %}
 
 {% block head %}
@@ -12,9 +12,9 @@
 	<h2>Upcoming Events</h2>
 	{% for event in future_events %}
 		<article>
-			<img src="{% static 'core/images/events/' %}{{ event.image }}"></img>
-			<strong><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></strong>
-			<p>{{ event.introduction }}</p>
+			<a href="{{ event.get_absolute_url }}"><img src="{% static 'core/images/events/' %}{{ event.image }}"></img></a>
+			<strong><a href="{{ event.get_absolute_url }}">{{ event.chinese_name }}</a></strong>
+			<p>{{ event.chinese_introduction }}</p>
 			<small>{{ event.event_date }} / <a href="{{ event.get_absolute_url }}">read more</a></small>
 		</article>
 	{% endfor %}
@@ -25,9 +25,9 @@
 		<h2>Previous Events</h2>
 		{% for event in past_events %}
 			<article>
-				<img src="{% static 'core/images/events/' %}{{ event.image }}"></img>
-				<strong><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></strong>
-				<p>{{ event.introduction }}</p>
+				<a href="{{ event.get_absolute_url }}"><img src="{% static 'core/images/events/' %}{{ event.image }}"></img></a>
+				<strong><a href="{{ event.get_absolute_url }}">{{ event.chinese_name }}</a></strong>
+				<p>{{ event.chinese_introduction }}</p>
 				<small>{{ event.event_date }} / <a href="{{ event.get_absolute_url }}">read more</a></small>
 			</article>
 		{% endfor %}

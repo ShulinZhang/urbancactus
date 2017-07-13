@@ -1,0 +1,39 @@
+{% extends "cn/navigation.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/page-product.css' %}" />
+<script type="text/javascript" src="{% static 'core/js/jquery.slides.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'core/js/slideshow.js' %}"></script>
+{% endblock %}
+
+{% block title %}{{ series.chinese_name }} | Urban Cactus{% endblock %}
+
+{% block content %}
+<section id="{{ series.slug }}">
+	<div class="column-2">
+		<div id="slideshow" data-image-width="1280" data-image-height="720">
+			{% for product in series.product_set.all %}
+				<img class="pull-left" src="{% static 'core/images/products/' %}{{ product.image }}"></img>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div id="product-description" class="column-2">
+		<h1>{{ series.chinese_name }}</h1>
+		<p>{{ series.chinese_description }}</p>
+
+		<ul>
+		{% for product in series.product_set.all %}
+			<li>
+				{{ product.chinese_name }}
+				{% if product.chinese_description %}
+					<br>
+					<em>{{ product.chinese_description }}</em>
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+</section>
+{% endblock %}

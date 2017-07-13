@@ -1,18 +1,18 @@
-{% extends "cn/base.html" %}
+{% extends "cn/navigation.html" %}
 {% load static %}
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'core/css/page-events-single.css' %}" />
 {% endblock %}
 
-{% block title %}{{ event.title }} | Urban Cactus{% endblock %}
+{% block title %}{{ event.chinese_name }} | Urban Cactus{% endblock %}
 
 {% block before-navigation %}
 {% endblock %}
 
 {% block content %}
 <div class="image" style="background-image: url('{% static 'core/images/events/' %}{{ event.image }}');"></div>
-<h1>{{ event.title }}</h1>
+<h1>{{ event.chinese_name }}</h1>
 <small>{{ event.event_date }}</small>
-<p>{{ event.full_content }}</p>
+<div>{{ event.chinese_full_description }}</div>
 {% endblock %}
