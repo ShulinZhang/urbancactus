@@ -71,6 +71,7 @@ aside.map-details {
 	right: 5px;
 	background: white;
 	padding: 1em;
+    z-index: 2000;
 }
 
 .map-details big {
