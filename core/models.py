@@ -27,8 +27,10 @@ class ProductSeries(models.Model):
 	slug = models.SlugField(primary_key=True, max_length=255)
 	english_name = models.CharField(max_length=255)
 	chinese_name = models.CharField(max_length=255)
-	english_description = models.TextField()
-	chinese_description = models.TextField()
+	#english_description = models.TextField()
+	#chinese_description = models.TextField()
+	english_graphic = models.CharField(max_length=255)
+	chinese_graphic = models.CharField(max_length=255)
 	icon = models.CharField(max_length=255)
 	image = models.CharField(max_length=255)
 

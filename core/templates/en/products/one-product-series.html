@@ -12,24 +12,39 @@
 {% block content %}
 <section id="{{ series.slug }}">
 	<div class="column-2">
-		<div id="slideshow" data-image-width="1280" data-image-height="720">
-			{% for product in series.product_set.all %}
-				<img class="pull-left" src="{% static 'core/images/products/' %}{{ product.image }}"></img>
-			{% endfor %}
-		</div>
+		{% if series.product_set.all.count > 1 %}
+			<div id="slideshow" data-image-width="1280" data-image-height="720">
+				{% for product in series.product_set.all %}
+					<img src="{% static 'core/images/products/' %}{{ product.image }}"></img>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div>
+				{% for product in series.product_set.all %}
+					<img src="{% static 'core/images/products/' %}{{ product.image }}"></img>
+				{% endfor %}
+			</div>
+		{% endif %}
 
-		<h4>Customers</h4>
-		<div class="grid">
-			{% for partner in series.partner_set.all %}
-				<article>
-					<a href="{{ partner.get_absolute_url }}">
-						<img src="{% static 'core/images/partner-logos/' %}{{ partner.logo }}"></img>
-					</a>
-				</article>
-			{% endfor %}
-		</div>
+		{% if series.partner_set.all.count > 0 %}
+			<div class="align-center">
+				<h4>Customers</h4>
+				<div class="grid">
+					{% for partner in series.partner_set.all %}
+						<article>
+							<a href="{{ partner.get_absolute_url }}">
+								<img src="{% static 'core/images/partner-logos/' %}{{ partner.logo }}"></img>
+							</a>
+						</article>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
 	</div>
 
+	<img class="column-2" src="{% static 'core/images/series-graphics/' %}{{ series.english_graphic }}"></img>
+
+	<!--
 	<div id="product-description" class="column-2">
 		<h1>{{ series.english_name }}</h1>
 		<p>{{ series.english_description }}</p>
@@ -46,5 +61,6 @@
 		{% endfor %}
 		</ul>
 	</div>
+	-->
 </section>
 {% endblock %}
