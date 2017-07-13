@@ -27,7 +27,7 @@ nav a {
 
 	text-transform: uppercase;
 	font-size: 80%;
-	color: #666;
+	color: black;
 }
 
 nav img {
@@ -39,7 +39,7 @@ nav a:hover {
 	color: white;
 	background: #888;
 	*/
-	outline: 1px solid black;
+	outline: 2px solid black;
 	text-decoration: none;
 }
 
@@ -53,6 +53,7 @@ nav ul {
 	right: 0;
 	min-width: 80px;
 
+	outline: 2px solid black;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -100,7 +101,7 @@ nav.topdown ul {
 	padding-top: 10px;
 
 	background: white;
-	box-shadow: 0 0.15em 0.35em 0;
+	/*box-shadow: 0 0.15em 0.35em 0;*/
 }
 
 nav.bottomup li {
