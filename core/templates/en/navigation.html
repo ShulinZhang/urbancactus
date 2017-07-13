@@ -17,35 +17,39 @@
 	    <nav class="topdown">
 			<img class="pull-left" src="{% static 'core/images/website/logo.png' %}" height="30" style="padding: 5px;"></img>
 			<img class="menu-button pull-right mobile-only" onclick="$('nav > span').toggleClass('desktop-only');" src="{% static 'core/images/website/menu.png' %}" height="20" style="padding: 10px;"></img>
-			<span class="desktop-only"><a href="/">Home</a></span>
-			<span class="desktop-only"><a href="/about">About Us</a></span>
+
+			<span class="desktop-only"><a href="/">首页</a></span>
+
+			<span class="desktop-only"><a href="/about">关于我们</a></span>
+
 			<span class="desktop-only">
-				<a href="#">SPI</a>
+				<a href="#">社会行动</a>
 				<ul>
-					<li class="header"><a href="/spi">Sustainable Products Initiative</a></li>
-					<li><a href="/map">Map</a></li>
-					<li><a href="/spi#join">Join</a></li>
+					<li class="header"><a href="/spi">可持续性餐饮包装行动联盟</a></li>
+					<li><a href="/map">地图</a></li>
+					<li><a href="/spi#join">加入联盟</a></li>
 				</ul>
 			</span>
+
 			<span class="desktop-only">
 				<a href="#">N#</a>
 				<ul>
-					<li><a href="/products">Products</a></li>
-					<li><a href="#">Store</a></li>
-					<li><a href="/partners">Partners</a></li>
+					<li><a href="/products">N次性</a></li>
+					<li><a href="#">购买</a></li>
+					<li><a href="/partners">合作商家</a></li>
 				</ul>
 			</span>
 			<span class="desktop-only">
 				<a href="#">Events</a>
 				<ul>
-					<li class="header"><a href="/events">Community Building Events</a></li>
+					<li class="header"><a href="/events">社区营造</a></li>
 					{% for event in upcoming_events %}
 						<li><a href="/events/{{ event.slug }}">{{ event.english_name }}</a></li>
 					{% endfor %}
 					<li><a href="/events/archive">Previous Events</a></li>
 				</ul>
 			</span class="desktop-only">
-			<span class="desktop-only"><a href="/contact">Contact</a></span>
+			<span class="desktop-only"><a href="/contact">联系方式</a></span>
 			<span class="desktop-only"><a href="http://cn.urbancactus.earth{{ request.path }}"><img src="{% static 'core/images/website/cn.png' %}"></img></a></span>
 		</nav>
 
@@ -63,9 +67,9 @@
 				<strong>Contact Us</strong>
 				<br>
 				<em>
-					Address #154, Street<br>
-					Big City, China<br>
-					+186 135 2304 6016<br>
+					中国，北京<br>
+					东城区交道口南大街15号新华文化大厦5层<br>
+					+15600652526<br>
 					<a href="mailto:contact@urbancactus.earth">contact@urbancactus.earth</a>
 				</em>
 			</div>
