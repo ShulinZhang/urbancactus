@@ -78,7 +78,23 @@ aside.map-details {
 	font-size: 5em;
 }
 
-#products article {
+#products header {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+#products header img {
+	width: auto;
+	height: 100px;
+	margin-right: 0.5em;
+}
+
+#product-series {
+	margin-top: 2em;
+}
+
+#product-series article {
 	display: inline-block;
 	text-align: center;
 	width: 200px;
@@ -90,21 +106,21 @@ aside.map-details {
 	border: 1px solid darkgray;
 }
 
-#products article a {
+#product-series article a {
 	display: block;
 	height: 100%;
 }
 
-#products article:nth-child(odd) {
+#product-series article:nth-child(even) {
 	margin-top: 5em;
 }
 
-#products article:last-child {
+#product-series article:last-child {
 	font-size: 2em;
 	line-height: 330px;
 }
 
-#products article:last-child a {
+#product-series article:last-child a {
 	color: darkgray;
 }
 

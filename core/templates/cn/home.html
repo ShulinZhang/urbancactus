@@ -8,16 +8,16 @@
 <script type="text/javascript" src="{% static 'core/js/slideshow.js' %}"></script>
 <script type="text/javascript" src="{% static 'core/js/map.js' %}"></script>
 
+<!--
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
 	integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
 	crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
 	integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
 	crossorigin=""></script>
-	<!--
+-->
 <link rel="stylesheet" type="text/css" href="{% static 'core/leaflet/leaflet.css' %}" />
 <script type="text/javascript" src="{% static 'core/leaflet/leaflet.js' %}"></script>
--->
 
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" type="text/css" href="{% static 'core/leaflet-markers/leaflet.markers.css' %}" />
@@ -27,8 +27,8 @@
 {% block slideshow %}
 <section id="intro">
 	<div id="slideshow" data-image-width="1800" data-image-height="900">
-		<img src="{% static 'core/images/website/slide1.jpg' %}"></img>
-		<img src="{% static 'core/images/website/slide2.jpg' %}"></img>
+		<img src="{% static 'core/images/home/slide1.jpg' %}"></img>
+		<img src="{% static 'core/images/home/slide2.jpg' %}"></img>
 	</div>
 </section>
 {% endblock %}
@@ -38,14 +38,14 @@
 	<strong>Mission</strong>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	<div>
-		<img src="{% static 'core/images/website/about.jpg' %}"></img>
+		<img src="{% static 'core/images/home/about.jpg' %}"></img>
 	</div>
 	<br>
 	<div>
-		<img src="{% static 'core/images/website/icon1.png' %}"></img>
-		<img src="{% static 'core/images/website/icon2.png' %}"></img>
-		<img src="{% static 'core/images/website/icon3.png' %}"></img>
-		<img src="{% static 'core/images/website/icon4.png' %}"></img>
+		<img src="{% static 'core/images/home/icon1.png' %}"></img>
+		<img src="{% static 'core/images/home/icon2.png' %}"></img>
+		<img src="{% static 'core/images/home/icon3.png' %}"></img>
+		<img src="{% static 'core/images/home/icon4.png' %}"></img>
 	</div>
 </section>
 
@@ -87,20 +87,31 @@
 <section id="products">
 	<h1>PRODUCTS</h1>
 
-	{% for series in product_series %}
+	<header>
+		<img src="{% static 'core/images/home/brand.png' %}"></img>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	</header>
+
+	<div class="clearfix"></div>
+
+	<div id="product-series">
+		{% for series in product_series %}
+			<article>
+				<a href="{{ series.get_absolute_url }}">
+					<img src="{% static 'core/images/series-images/' %}{{ series.image }}"></img>
+					<div>
+						<strong>{{ series.chinese_name }}</strong>
+					</div>
+				</a>
+			</article>
+		{% endfor %}
+
 		<article>
-			<a href="{{ series.get_absolute_url }}">
-				<img src="{% static 'core/images/series-images/' %}{{ series.image }}"></img>
-				<div><strong>{{ series.chinese_name }}</strong></div>
+			<a href="/products">
+				<strong>OTHERS</strong>
 			</a>
 		</article>
-	{% endfor %}
-
-	<article>
-		<a href="/products">
-			<strong>OTHERS</strong>
-		</a>
-	</article>
+	</div>
 </section>
 
 {% if events.count > 0 %}

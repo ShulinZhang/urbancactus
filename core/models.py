@@ -59,8 +59,9 @@ class Partner(models.Model):
 	logo = models.CharField(max_length=255)
 	english_description = models.TextField()
 	chinese_description = models.TextField()
+	alliance_member = models.BooleanField(default=False)
 	usage_image = models.CharField(max_length=255, default="")
-	products = models.ManyToManyField(Product)
+	product_series = models.ManyToManyField(ProductSeries)
 
 	def __str__(self):
 		return self.english_name
