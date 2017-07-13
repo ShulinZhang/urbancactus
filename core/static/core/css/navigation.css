@@ -35,8 +35,11 @@ nav img {
 }
 
 nav a:hover {
+	/*
 	color: white;
 	background: #888;
+	*/
+	outline: 1px solid black;
 	text-decoration: none;
 }
 

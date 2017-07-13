@@ -86,6 +86,7 @@ def spi(request):
 
     return render(request, ln+'/spi.html', {
         'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
+        'partners': Partner.objects.filter(alliance_member=True),
     })
 
 def map(request):
