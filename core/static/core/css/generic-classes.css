@@ -1,8 +1,18 @@
 
+.clearfix {
+	clear: both;
+}
+
 .column-2 {
+    vertical-align: text-top;
 	display: inline-block;
 	box-sizing: border-box;
 	width: 49%;
+}
+
+.grid > * {
+	display: inline-block;
+	margin: 0.5em;
 }
 
 .pull-right { float: right; }

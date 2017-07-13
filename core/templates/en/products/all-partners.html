@@ -1,0 +1,21 @@
+{% extends "en/navigation.html" %}
+{% load static %}
+
+{% block title %}Partners | Urban Cactus{% endblock %}
+
+{% block content %}
+
+<section class="align-center">
+	<h1>Partners</h1>
+	<div class="grid">
+		{% for partner in partners %}
+			<article>
+				<a href="{{ partner.get_absolute_url }}">
+					<img src="{% static 'core/images/partner-logos/' %}{{ partner.logo }}"></img>
+				</a>
+			</article>
+		{% endfor %}
+	</div>
+</section>
+
+{% endblock %}

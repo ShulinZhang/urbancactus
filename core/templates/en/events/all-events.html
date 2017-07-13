@@ -1,0 +1,37 @@
+{% extends "en/navigation.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/page-events.css' %}" />
+{% endblock %}
+
+{% block title %}Events | Urban Cactus{% endblock %}
+
+{% block content %}
+<section id="upcoming">
+	<h2>Upcoming Events</h2>
+	{% for event in future_events %}
+		<article>
+			<a href="{{ event.get_absolute_url }}"><img src="{% static 'core/images/events/' %}{{ event.image }}"></img></a>
+			<strong><a href="{{ event.get_absolute_url }}">{{ event.english_name }}</a></strong>
+			<p>{{ event.english_introduction }}</p>
+			<small>{{ event.event_date }} / <a href="{{ event.get_absolute_url }}">read more</a></small>
+		</article>
+	{% endfor %}
+</section>
+
+{% if past_events.count > 0 %}
+	<section id="archive">
+		<h2>Previous Events</h2>
+		{% for event in past_events %}
+			<article>
+				<a href="{{ event.get_absolute_url }}"><img src="{% static 'core/images/events/' %}{{ event.image }}"></img></a>
+				<strong><a href="{{ event.get_absolute_url }}">{{ event.english_name }}</a></strong>
+				<p>{{ event.english_introduction }}</p>
+				<small>{{ event.event_date }} / <a href="{{ event.get_absolute_url }}">read more</a></small>
+			</article>
+		{% endfor %}
+		<a href="/events/archive">See More</a>
+	</section>
+{% endif %}
+{% endblock %}

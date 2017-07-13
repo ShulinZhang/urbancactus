@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="{% static 'core/css/global.css' %}" />
@@ -16,33 +16,36 @@
 	<body>
 	    <nav class="topdown">
 			<img class="pull-left" src="{% static 'core/images/website/logo.png' %}" height="30" style="padding: 5px;"></img>
-			<span><a href="/">Chinese</a></span>
-			<span>
-				<a href="/spi">SPI</a>
+			<img class="menu-button pull-right mobile-only" onclick="$('nav > span').toggleClass('desktop-only');" src="{% static 'core/images/website/menu.png' %}" height="20" style="padding: 10px;"></img>
+			<span class="desktop-only"><a href="/">Home</a></span>
+			<span class="desktop-only">
+				<a href="#">SPI</a>
 				<ul>
-					<li class="header"><span>Sustainable Products Initiative</span></li>
-					<li><a href="/spi/map">Map</a></li>
+					<li class="header"><a href="/spi">Sustainable Products Initiative</a></li>
+					<li><a href="/map">Map</a></li>
 					<li><a href="/spi#join">Join</a></li>
 				</ul>
 			</span>
-			<span>
-				<a href="/n/products">N#</a>
+			<span class="desktop-only">
+				<a href="#">N#</a>
 				<ul>
-					<li><a href="/n/products">Products</a></li>
+					<li><a href="/products">Products</a></li>
 					<li><a href="#">Store</a></li>
+					<li><a href="/partners">Partners</a></li>
 				</ul>
 			</span>
-			<span>
-				<a href="/events">Events</a>
+			<span class="desktop-only">
+				<a href="#">Events</a>
 				<ul>
-					<li class="header"><span>Community Building Events</span></li>
+					<li class="header"><a href="/events">Community Building Events</a></li>
 					{% for event in upcoming_events %}
-						<li><a href="/events/{{ event.slug }}">{{ event.title }}</a></li>
+						<li><a href="/events/{{ event.slug }}">{{ event.english_name }}</a></li>
 					{% endfor %}
 					<li><a href="/events/archive">Previous Events</a></li>
 				</ul>
-			</span>
-			<span><a href="/contact">Contact</a></span>
+			</span class="desktop-only">
+			<span class="desktop-only"><a href="/contact">Contact</a></span>
+			<span class="desktop-only"><a href="http://cn.urbancactus.earth{{ request.path }}"><img src="{% static 'core/images/website/cn.png' %}"></img></a></span>
 		</nav>
 
 		{% block slideshow %}{% endblock %}
@@ -68,7 +71,9 @@
 			<small>Copyright (c) 2017 Urban Cactus, All Rights Reserved.</small>
 		</footer>
 	</body>
-	<script type="text/javascript">
-		var python_data = {{ js_data|safe }};
-	</script>
+	{% if js_data %}
+		<script type="text/javascript">
+			var python_data = {{ js_data|safe }};
+		</script>
+	{% endif %}
 </html>

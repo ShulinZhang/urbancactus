@@ -30,6 +30,10 @@ nav a {
 	color: #666;
 }
 
+nav img {
+	vertical-align: text-bottom;
+}
+
 nav a:hover {
 	color: white;
 	background: #888;
@@ -73,7 +77,7 @@ nav li a {
 }
 
 nav.fixed {
-	background-color: #FFFFFF;
+    background: white;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -103,6 +107,11 @@ nav.bottomup li {
 
 nav.bottomup li:first-child {
 	border-top: 2px solid darkgray;
+}
+
+nav .menu-button:hover {
+	cursor: pointer;
+	opacity: 0.8;
 }
 
 @media(max-width: 500px) {

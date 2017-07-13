@@ -5,7 +5,7 @@ article {
 	padding: 0.5em;
 }
 
-img {
+#content img {
 	border: 1px solid darkgray;
 	width: 100%;
 }

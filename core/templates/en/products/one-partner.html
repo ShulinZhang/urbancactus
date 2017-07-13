@@ -1,0 +1,21 @@
+{% extends "en/navigation.html" %}
+{% load static %}
+
+{% block title %}{{ partner.english_name }} | Urban Cactus{% endblock %}
+
+{% block content %}
+
+<section id="{{ partner.slug }}">
+	{% if partner.usage_image %}
+		<img src="{% static 'core/images/partner-images/' %}{{ partner.usage_image }}"></img>
+	{% endif %}
+	<h1>
+		<a class="external-link" href="{{ partner.english_url }}">
+			{{ partner.english_name }}
+			<img src="{% static 'core/images/website/link.png' %}"></img>
+		</a>
+	</h1>
+	<p>{{ partner.english_description }}</p>
+</section>
+
+{% endblock %}

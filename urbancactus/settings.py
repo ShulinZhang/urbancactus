@@ -25,7 +25,7 @@ SECRET_KEY = '9=5d711uro#g%wjk-65%!m4y9hsk7#)y3lozx536@j#!6f9ib#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '127.0.0.1', 'urbancactus.herokuapp.com', 'urbancactus.earth', 'www.urbancactus.earth' ]
+ALLOWED_HOSTS = [ 'urbancactus.herokuapp.com', 'urbancactus.earth', 'www.urbancactus.earth', 'en.urbancactus.earth', 'cn.urbancactus.earth' ]
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.apps.SubDomainLanguageMiddleware',
 ]
 
 ROOT_URLCONF = 'urbancactus.urls'
@@ -67,6 +68,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
 
 WSGI_APPLICATION = 'urbancactus.wsgi.application'
 

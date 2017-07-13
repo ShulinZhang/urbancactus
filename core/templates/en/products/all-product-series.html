@@ -1,0 +1,23 @@
+{% extends "en/navigation.html" %}
+{% load static %}
+
+{% block title %}Products | Urban Cactus{% endblock %}
+
+{% block content %}
+
+<section class="align-center">
+	<h1>Products</h1>
+	<div class="grid">
+		{% for series in product_series %}
+			<article>
+				<a href="{{ series.get_absolute_url }}">
+					<img src="{% static 'core/images/series-icons/' %}{{ series.icon }}"></img>
+					<div>{{ series.english_name }}</div>
+				</a>
+			</article>
+		{% endfor %}
+	</div>
+	<div class="clearfix"></div>
+</section>
+
+{% endblock %}

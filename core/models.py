@@ -4,15 +4,18 @@ from django.urls import reverse
 # Create your models here.
 class Event(models.Model):
 	slug = models.SlugField(primary_key=True, max_length=255)
-	title = models.CharField(max_length=255)
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
 	image = models.CharField(max_length=255)
-	introduction = models.TextField()
-	full_content = models.TextField()
+	english_introduction = models.TextField()
+	chinese_introduction = models.TextField()
+	english_full_description = models.TextField()
+	chinese_full_description = models.TextField()
 	event_date = models.DateField()
 	publish_date = models.DateField()
 
 	def __str__(self):
-		return str(self.event_date) + " - " + self.title + " (published: " + str(self.publish_date) + ")"
+		return str(self.event_date) + " - " + self.english_name + " (published: " + str(self.publish_date) + ")"
 
 	def get_absolute_url(self):
 		return reverse('events-single', args=[self.slug])
@@ -22,47 +25,80 @@ class Event(models.Model):
 
 class ProductSeries(models.Model):
 	slug = models.SlugField(primary_key=True, max_length=255)
-	title = models.CharField(max_length=255)
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
+	english_description = models.TextField()
+	chinese_description = models.TextField()
+	icon = models.CharField(max_length=255)
 	image = models.CharField(max_length=255)
 
 	def __str__(self):
-		return self.title
+		return self.english_name
+
+	def get_absolute_url(self):
+		return reverse('products-single', args=[self.slug])
 
 class Product(models.Model):
 	slug = models.SlugField(primary_key=True, max_length=255)
-	title = models.CharField(max_length=255)
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
+	english_description = models.TextField()
+	chinese_description = models.TextField()
 	image = models.CharField(max_length=255)
-	description = models.TextField()
 	series = models.ForeignKey(ProductSeries, on_delete=models.SET_NULL, null=True)
 
 	def __str__(self):
-		return self.title + " (" + str(self.series) + ")"
+		return self.english_name + " (" + str(self.series) + ")"
 
 class Partner(models.Model):
-	name = models.CharField(max_length=255)
-	url = models.URLField()
+	slug = models.CharField(max_length=255)
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
+	english_url = models.URLField()
+	chinese_url = models.URLField()
 	logo = models.CharField(max_length=255)
-	story = models.TextField()
+	english_description = models.TextField()
+	chinese_description = models.TextField()
+	usage_image = models.CharField(max_length=255, default="")
 	products = models.ManyToManyField(Product)
 
 	def __str__(self):
-		return self.name
+		return self.english_name
 
-class MapType(models.Model):
-	name = models.CharField(max_length=255)
+	def get_absolute_url(self):
+		return reverse('partners-single', args=[self.slug])
+
+class MarkerType(models.Model):
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
 	icon = models.CharField(max_length=255, null=True, blank=True)
 	colour = models.CharField(max_length=10, null=True, blank=True)
 
 	def __str__(self):
-		return self.name
+		return self.english_name
 
-class MapMarker(models.Model):
-	name = models.CharField(max_length=255)
-	description = models.TextField()
+class Marker(models.Model):
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
+	english_description = models.TextField()
+	chinese_description = models.TextField()
 	latitude = models.DecimalField(max_digits=9, decimal_places=6)
 	longitude = models.DecimalField(max_digits=9, decimal_places=6)
-	link = models.URLField()
-	map_type = models.ForeignKey(MapType, on_delete=models.CASCADE)
+	english_url = models.URLField()
+	chinese_url = models.URLField()
+	marker_type = models.ForeignKey(MarkerType, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.name + " (" + str(self.map_type) + " at " + str(self.latitude) + ", " + str(self.longitude) + ")"
+		return self.english_name + " (" + str(self.map_type) + " at " + str(self.latitude) + ", " + str(self.longitude) + ")"
+
+class Map(models.Model):
+	slug = models.CharField(max_length=255)
+	english_name = models.CharField(max_length=255)
+	chinese_name = models.CharField(max_length=255)
+	marker_types = models.ManyToManyField(MarkerType)
+
+	def __str__(self):
+		return self.slug
+
+	def get_absolute_url(self):
+		return reverse('map', args=[self.slug])

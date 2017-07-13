@@ -3,16 +3,19 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.default_index, name='index'),
-    url(r'^(?P<ln>[\w-]+)?/$', views.index, name='index'),
-    url(r'^(?P<ln>[\w-]+)/contact?/$', views.contact, name='contact'),
+    url(r'^$', views.index, name='index'),
+    url(r'^contact?/$', views.contact, name='contact'),
+    url(r'^spi?/$', views.spi, name='spi'),
 
-    url(r'^(?P<ln>[\w-]+)/spi?/$', views.spi_index, name='spi'),
-    url(r'^(?P<ln>[\w-]+)/spi/map?/$', views.spi_map, name='spi-map'),
+    url(r'^map?/$', views.map, name='map'),
+    #url(r'^map/(?P<slug>[\w-]+)?/$', views.one_map, name='map-single'),
 
-    url(r'^(?P<ln>[\w-]+)/n/products?/$', views.n_products, name='n-products'),
+    url(r'^products?/$', views.all_series, name='products-index'),
+    url(r'^products/(?P<slug>[\w-]+)?/$', views.one_series, name='products-single'),
+    url(r'^partners?/$', views.all_partners, name='partners-index'),
+    url(r'^partners/(?P<slug>[\w-]+)?/$', views.one_partner, name='partners-single'),
 
-    url(r'^(?P<ln>[\w-]+)/events?/$', views.events_index, name='events'),
-    url(r'^(?P<ln>[\w-]+)/events/archive?/$', views.events_archive, name='events-archive'),
-    url(r'^(?P<ln>[\w-]+)/events/(?P<slug>[\w-]+)?/$', views.events_single, name='events-single'),
+    url(r'^events?/$', views.all_events, name='events-index'),
+    url(r'^events/archive?/$', views.past_events, name='events-archive'),
+    url(r'^events/(?P<slug>[\w-]+)?/$', views.one_event, name='events-single'),
 ]
