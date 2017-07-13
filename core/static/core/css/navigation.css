@@ -9,6 +9,7 @@ nav {
 	text-align: right;
 	padding: 0 5%;
 	z-index: 2000;
+	margin-top: 1px;
 }
 
 nav > span {
@@ -83,6 +84,7 @@ nav li a {
 nav.fixed {
     background: white;
 	position: fixed;
+	margin: 0;
 	top: 0;
 	width: 100%;
 	box-sizing: border-box;
