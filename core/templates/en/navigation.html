@@ -18,38 +18,39 @@
 			<img class="pull-left" src="{% static 'core/images/website/logo.png' %}" height="30" style="padding: 5px;"></img>
 			<img class="menu-button pull-right mobile-only" onclick="$('nav > span').toggleClass('desktop-only');" src="{% static 'core/images/website/menu.png' %}" height="20" style="padding: 10px;"></img>
 
-			<span class="desktop-only"><a href="/">首页</a></span>
+			<span class="desktop-only"><a href="/">Home</a></span>
 
-			<span class="desktop-only"><a href="/about">关于我们</a></span>
+			<span class="desktop-only"><a href="/about">About Us</a></span>
 
 			<span class="desktop-only">
-				<a href="#">社会行动</a>
+				<a href="#">SPI</a>
 				<ul>
-					<li class="header"><a href="/spi">可持续性餐饮包装行动联盟</a></li>
-					<li><a href="/map">地图</a></li>
-					<li><a href="/spi#join">加入联盟</a></li>
+					<li><a href="/spi">Sustainable Products Initiative</a></li>
+					<li><a href="/map">Map</a></li>
+					<li><a href="/spi/alliance">Alliance</a></li>
+					<li><a href="/spi/alliance#join">Join</a></li>
 				</ul>
 			</span>
 
 			<span class="desktop-only">
-				<a href="#">N次性</a>
+				<a href="#">N#</a>
 				<ul>
 					<li><a href="/products">Products</a></li>
-					<li><a href="#">购买</a></li>
-					<li><a href="/partners">合作商家</a></li>
+					<li><a href="#">Store</a></li>
+					<li><a href="/partners">Customers</a></li>
 				</ul>
 			</span>
 			<span class="desktop-only">
 				<a href="#">Events</a>
 				<ul>
-					<li class="header"><a href="/events">社区营造</a></li>
+					<li><a href="/events">Community Building Events</a></li>
 					{% for event in upcoming_events %}
 						<li><a href="/events/{{ event.slug }}">{{ event.english_name }}</a></li>
 					{% endfor %}
 					<li><a href="/events/archive">Previous Events</a></li>
 				</ul>
 			</span class="desktop-only">
-			<span class="desktop-only"><a href="/contact">联系方式</a></span>
+			<span class="desktop-only"><a href="/contact">Contact</a></span>
 			<span class="desktop-only"><a href="http://cn.urbancactus.earth{{ request.path }}"><img src="{% static 'core/images/website/cn.png' %}"></img></a></span>
 		</nav>
 

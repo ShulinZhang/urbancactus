@@ -89,6 +89,15 @@ def spi(request):
         'partners': Partner.objects.filter(alliance_member=True),
     })
 
+def sra(request):
+    ln = request.LANGUAGE_CODE
+    today = date.today()
+
+    return render(request, ln+'/sra.html', {
+        'upcoming_events': Event.objects.filter(publish_date__lte=today, event_date__gte=today)[:3],
+        'partners': Partner.objects.filter(alliance_member=True),
+    })
+
 def map(request):
     ln = request.LANGUAGE_CODE
     today = date.today()

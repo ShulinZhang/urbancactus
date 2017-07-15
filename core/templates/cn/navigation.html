@@ -29,9 +29,10 @@
 			<span class="desktop-only">
 				<a href="#">社会行动</a>
 				<ul>
-					<li class="header"><a href="/spi">可持续性餐饮包装行动联盟</a></li>
+					<li><a href="/spi">可持续性餐饮包装行动联盟</a></li>
 					<li><a href="/map">地图</a></li>
-					<li><a href="/spi#join">加入联盟</a></li>
+					<li><a href="/spi/alliance">Alliance</a></li>
+					<li><a href="/spi/alliance#join">加入联盟</a></li>
 				</ul>
 			</span>
 
@@ -46,7 +47,7 @@
 			<span class="desktop-only">
 				<a href="#">Events</a>
 				<ul>
-					<li class="header"><a href="/events">社区营造</a></li>
+					<li><a href="/events">社区营造</a></li>
 					{% for event in upcoming_events %}
 						<li><a href="/events/{{ event.slug }}">{{ event.english_name }}</a></li>
 					{% endfor %}

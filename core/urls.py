@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^about?/$', views.about, name='about'),
     url(r'^contact?/$', views.contact, name='contact'),
     url(r'^spi?/$', views.spi, name='spi'),
+    url(r'^spi/alliance?/$', views.sra, name='spi'),
 
     url(r'^map?/$', views.map, name='map'),
     #url(r'^map/(?P<slug>[\w-]+)?/$', views.one_map, name='map-single'),
