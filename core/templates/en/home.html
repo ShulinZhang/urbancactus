@@ -86,7 +86,7 @@
 </section>
 
 <section id="products">
-	<h1>PRODUCTS</h1>
+	<h1>PRODUCTSkjlkjlkjlkj</h1>
 
 	<header>
 		<img src="{% static 'core/images/home/brand.png' %}"></img>
@@ -106,27 +106,19 @@
 				</a>
 			</article>
 
-	<section id="products">
-				<h1>SERVICES</h1>
 
-				<header>
-					<img src="{% static 'core/images/home/brand.png' %}"></img>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</header>
-
-				<div class="clearfix"></div>
-
-				<div id="product-series">
-					{% for series in product_series %}
-						<article>
-							<a href="{{ series.get_absolute_url }}">
-								<img src="{% static 'core/images/series-images/' %}{{ series.image }}"></img>
-								<div>
-									<strong>{{ series.english_name }}</strong>
-								</div>
-							</a>
-						</article>
 		{% endfor %}
+
+				<article>
+					<a href="/products">
+						<h>SERVICES</h>
+					</a>
+				</article>
+				<p>Assessment  and Certification for restaurants, coffee shops and bars.</p>
+ 	<p>Design Solutions for sustainable business operations.</p>
+<p>Assistance with public relations and marketing on your sustainability efforts.</p>
+			</div>
+		</section>
 
 		<article>
 			<a href="/products">
