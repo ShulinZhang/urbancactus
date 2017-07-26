@@ -23,31 +23,31 @@
 			<span class="desktop-only"><a href="/about">About Us</a></span>
 
 			<span class="desktop-only">
-				<a href="#">SPI</a>
+				<a href="#">Alliances</a>
 				<ul>
-					<li><a href="/spi">Sustainable Products Initiative</a></li>
+					<li><a href="/spi">Sustainable Packaging Initiative</a></li>
 					<li><a href="/map">Map</a></li>
-					<li><a href="/spi/alliance">Alliance</a></li>
+					<li><a href="/spi/alliance">Members</a></li>
 					<li><a href="/spi/alliance#join">Join</a></li>
 				</ul>
 			</span>
 
 			<span class="desktop-only">
-				<a href="#">N#</a>
+				<a href="#">Products</a>
 				<ul>
 					<li><a href="/products">Products</a></li>
 					<li><a href="#">Store</a></li>
-					<li><a href="/partners">Customers</a></li>
+					<li><a href="/partners">Collaborators</a></li>
 				</ul>
 			</span>
 			<span class="desktop-only">
-				<a href="#">Events</a>
+				<a href="#">Community Outreach</a>
 				<ul>
-					<li><a href="/events">Community Building Events</a></li>
+					<li><a href="/events">Upcoming</a></li>
 					{% for event in upcoming_events %}
 						<li><a href="/events/{{ event.slug }}">{{ event.english_name }}</a></li>
 					{% endfor %}
-					<li><a href="/events/archive">Previous Events</a></li>
+					<li><a href="/events/archive">Previous</a></li>
 				</ul>
 			</span class="desktop-only">
 			<span class="desktop-only"><a href="/contact">Contact</a></span>
