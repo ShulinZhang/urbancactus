@@ -35,8 +35,8 @@
 
 {% block content %}
 <section id="about">
-	<strong>Mission</strong>
-	<p>Lor一个简单的测试Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<strong>我们的使命</strong>
+	<p>立足于可持续城市日常生活中的衣食住行用等基本方面，通过社会行动 | 产品 | 社区营造的形式来促进个人、社区与环境的可持续关系。Urbancactus是一个社会事业，不进行分红，不以盈利为最终目的，而致力于以可持续的商业模式解决社会问题。</p>
 	<div>
 		<img src="{% static 'core/images/home/about.png' %}"></img>
 	</div>
@@ -47,7 +47,7 @@
 		<img src="{% static 'core/images/home/icon3.png' %}"></img>
 		<img src="{% static 'core/images/home/icon4.png' %}"></img>
 	</div>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p>我们的行动基于联合国可持续发展目标</p>
 </section>
 
 <section class="map-details">
@@ -55,12 +55,12 @@
 
 	<div class="align-center column-2">
 		<big>100</big>
-		Plastic Containers Avoided
+		个一次性容器通过我们努力被避免
 	</div>
 
 	<div class="align-center column-2">
 		<big>32</big>
-		Participating Restaurants
+		家参与饭店
 	</div>
 </section>
 
@@ -75,22 +75,22 @@
 
 		<div class="align-center">
 			<big>100</big>
-			Plastic Containers Avoided
+			个一次性容器通过我们努力被避免
 		</div>
 
 		<div class="align-center">
 			<big>32</big>
-			Participating Restaurants
+			家参与饭店
 		</div>
 	</aside>
 </section>
 
 <section id="products">
-	<h1>PRODUCTS</h1>
+	<h1>产品</h1>
 
 	<header>
 		<img src="{% static 'core/images/home/brand.png' %}"></img>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p>我们提供可持续且性价比高的塑料替代品的批发、零售及订制服务。我们遵循循环经济和可持续发展的原则, 联合工厂、商家与消费者以不以盈利为最终目的的社会事业模式打造城市可持续生活用品一站式采购服务。</p>
 	</header>
 
 	<div class="clearfix"></div>
@@ -109,7 +109,7 @@
 
 		<article>
 			<a href="/products">
-				<strong>OTHERS</strong>
+				<strong>其他</strong>
 			</a>
 		</article>
 	</div>
@@ -117,7 +117,7 @@
 
 {% if events.count > 0 %}
 <section id="events">
-	<h1>EVENTS</h1>
+	<h1>案例</h1>
 	{% for event in events %}
 		<article>
 			<a href="{{ event.get_absolute_url }}"><img src="{% static 'core/images/events/' %}{{ event.image }}"></img></a>
